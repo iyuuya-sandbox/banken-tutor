@@ -19,7 +19,11 @@
         <td><%= post.body %></td>
         <td><%= post.published_at %></td>
         <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td>
+          <% if loyalty(post, :posts).update? %>
+            <%= link_to 'Edit', edit_post_path(post) %>
+          <% end %>
+        </td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

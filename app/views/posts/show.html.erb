@@ -15,5 +15,7 @@
   <%= @post.published_at %>
 </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<% if loyalty(@post, :posts).update? %>
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+<% end %>
 <%= link_to 'Back', posts_path %>
